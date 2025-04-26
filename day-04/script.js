@@ -140,3 +140,52 @@ switch (city) {
   default:
     console.log("It is in USA");
 }
+
+console.log("2015" == 2015); // true
+
+let year = "2015";
+
+if (year === 2015) console.log("true; it is equal");
+
+console.log(undefined || 0 || "" || 1);
+console.log(1 && 2 && 3 && 1);
+
+console.log(!!1);
+console.log(Boolean(!!1));
+
+let y;
+
+console.log((y = (1 && 2) ?? 3));
+
+let i = 0;
+
+for (i; i < 3; i++) {
+  console.log("understand how it works");
+}
+
+// let sum = 0;
+
+// while (true) {
+//   let value = +prompt("Enter a number", "");
+
+//   if (!value) break; // (*)
+
+//   sum += value;
+// }
+// alert("Sum: " + sum);
+
+for (let i = 0; i < 10; i++) {
+  // if true, skip the remaining part of the body
+  if (i % 2 == 0) continue;
+
+  console.log(i); // 1, then 3, 5, 7, 9
+}
+
+//? A way to break from the external loop of a for loop
+Freak: for (i = 0; i < 4; i++) {
+  for (let index = 0; index < 10; index++) {
+    if (i + index == 3) break Freak;
+
+    console.log(i + index);
+  }
+}
