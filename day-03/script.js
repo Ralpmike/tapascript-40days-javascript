@@ -8,3 +8,23 @@ let a1 = null ?? 1;
 let a2 = undefined ?? 1;
 
 console.log(a1);
+
+function showPrimes(n) {
+  for (let i = 2; i < n; i++) {
+    if (!isPrime(i)) {
+      continue;
+    }
+
+    console.log(i); // a prime
+  }
+}
+
+function isPrime(i) {
+  for (let j = 2; j < i; j++) {
+    if (i % j == 0) return false;
+  }
+
+  return true; // a prime
+}
+
+showPrimes(6);

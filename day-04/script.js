@@ -189,3 +189,87 @@ Freak: for (i = 0; i < 4; i++) {
     console.log(i + index);
   }
 }
+// switch (browser) {
+//   case "Edge":
+//     alert("You've got the Edge!");
+//     break;
+
+//   case "Chrome":
+//   case "Firefox":
+//   case "Safari":
+//   case "Opera":
+//     alert("Okay we support these browsers too");
+//     break;
+
+//   default:
+//     alert("We hope that this page looks ok!");
+// }
+
+let browser = "Edge";
+
+if (
+  browser === "Chrome" ||
+  browser === "Firefox" ||
+  browser === "Safari" ||
+  browser === "Opera"
+) {
+  console.log("Okay we support these browsers too");
+} else if (browser === "Edge") {
+  console.log("You've got the Edge!");
+} else console.log("We hope that this page looks ok!");
+
+function showPrimes(n) {
+  for (let i = 2; i < n; i++) {
+    if (!isPrime(i)) {
+      continue;
+    }
+
+    console.log(i); // a prime
+  }
+}
+
+function isPrime(i) {
+  for (let j = 2; j < i; j++) {
+    if (i % j == 0) return false;
+  }
+
+  return true; // a prime
+}
+
+showPrimes(6);
+
+function checkAge(age) {
+  // if (age > 18) {
+  //   return true;
+  // } else {
+  //   return "Did parents allow you?";
+  // }
+  // const result = age > 18 ? true : "Did parents allow you?";
+  const result = age > 18 || "Did parents allow you?";
+
+  return result;
+}
+
+console.log(checkAge(19));
+
+function min(a, b) {
+  // if (a<b){
+  //   return a
+  // }else{
+  //   return b
+  // }
+  return a < b ? a : b;
+}
+
+console.log(min(2, 7));
+
+function power(a, n) {
+  let result = a;
+  for (let i = 1; i < n; i++) {
+    result *= a;
+  }
+
+  return result;
+}
+
+console.log(power(7, 2));
