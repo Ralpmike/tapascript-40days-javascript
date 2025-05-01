@@ -5,15 +5,21 @@ function numberGuessingGame() {
   let userPrompt;
 
   while (true) {
-    userPrompt = +prompt("Guess a Number between 1 and 10");
-    if (isNaN(userPrompt) || userPrompt === "" || !userPrompt) {
-      console.log("Invalid input. Please enter a number.");
-      continue;
-    } else if (userPrompt == null) {
-      break;
-    } else {
-      break;
+    const input = prompt("Guess a Number between 1 and 10");
+
+    if (input == null || input == "") {
+      console.log("Game cancelled. Goodbye 👍!");
+      return;
     }
+    //? Check if the user input is a number and not a string
+    userPrompt = Number(input);
+
+    if (isNaN(userPrompt) || userPrompt < 1 || userPrompt > 10) {
+      console.log("Invalid input. Please enter a number between 1 and 10.");
+      continue;
+    }
+
+    break;
   }
 
   numberOfGuesses++;
