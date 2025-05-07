@@ -140,9 +140,32 @@ myUserData;
 const myUserData2 = Object.fromEntries(myUserData);
 console.log(myUserData2);
 
-//? to get freeze an object, you can use Object.freeze() method
+//? to get freeze an object, you can use Object.freeze() method. this method prevents the object from being modified, i.e, you can't add or remove properties from the object, and you can't change the values of the properties in the object.
+
 const myUserData3 = Object.freeze(userData);
 myUserData3.name = "Raphael";
 
 console.log(myUserData3.name); // it won't change the name to Raphael because the object is frozen
 console.log(myUserData3.age); // it will still return 45 because the object is frozen
+
+//* to check whether an object is frozen or not, you can use Object.isFrozen() method
+const isFrozen = Object.isFrozen(myUserData3);
+console.log(isFrozen);
+
+//? object.seal() method prevents the object from being deleted, but allows the properties to be modified. it also prevents new properties from being added to the object.
+
+const sealData = {
+  name: "Thomas Lumumba",
+  age: 45,
+};
+const myUserData4 = Object.seal(sealData);
+myUserData4.name = "Raphael";
+console.log(myUserData4.name);
+
+//* to check whether an object is sealed or not, you can use Object.isSealed() method
+const isSealed = Object.isSealed(myUserData4);
+console.log(isSealed); // it will return true because the object is sealed
+
+//? Object.hasOwn() method checks whether the object has the property or not. it returns true if the object has the property, otherwise it returns false.
+const hasName = Object.hasOwn(sealData, "name");
+hasName; // it will return true because the object has the property name
