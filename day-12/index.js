@@ -169,3 +169,26 @@ console.log(isSealed); // it will return true because the object is sealed
 //? Object.hasOwn() method checks whether the object has the property or not. it returns true if the object has the property, otherwise it returns false.
 const hasName = Object.hasOwn(sealData, "name");
 hasName; // it will return true because the object has the property name
+
+//* Object destructuring: this is a way of extracting values from an object and assigning them to variables. it is a shorthand way of writing the same thing as above.
+
+const studentDetails = () => {
+  return {
+    myName: "John Doe",
+    age: 20,
+    address: {
+      street: "123 Main St",
+      city: "New York",
+      state: "NY",
+    },
+    hobbies: ["reading", "swimming", "coding"],
+    isStudent: true,
+    // greet: function () {
+    //   return `Hello, my name is ${this.myName} and I am ${this.age} years old. Nice to meet you!`;
+    // },
+  };
+};
+
+const { myName, age, address, hobbies, isStudent } = studentDetails();
+
+console.log(myName); // John Doe
