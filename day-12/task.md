@@ -34,6 +34,8 @@ const person = {
 };
 ```
 
+# const {name, company:{name, location:{city, zip}}}
+
 ## 4. Build a Student Management System
 
 - Store student details in an object (name, age, grades).

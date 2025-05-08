@@ -192,3 +192,24 @@ const studentDetails = () => {
 const { myName, age, address, hobbies, isStudent } = studentDetails();
 
 console.log(myName); // John Doe
+
+const personObject = {
+  name: "Tapas",
+  company: {
+    name: "tapaScript",
+    location: {
+      city: "Bangalore",
+      zip: "94107",
+    },
+  },
+};
+
+const {
+  name: persoName,
+  company: {
+    name: companyName,
+    location: { city, zip },
+  },
+} = personObject;
+
+console.log(persoName, companyName, city, zip);
