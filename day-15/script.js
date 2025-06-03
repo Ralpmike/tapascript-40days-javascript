@@ -71,6 +71,148 @@ months;
   numbers;
   newArray;
 
+  //? to update an array without modifying the original array
   const numbers2 = numbers.with(-2, 8);
   numbers2;
 }
+
+//?Array like: array is not an array but it is an array-like object. Array-like objects have length property.
+
+const arrayLike = {
+  0: "a",
+  1: "b",
+  2: "c",
+  length: 3,
+};
+
+console.log(arrayLike.length);
+
+console.log(Array.isArray(arrayLike));
+
+console.log(arrayLike instanceof Object);
+
+const checkArgs = function () {
+  console.log(arguments);
+
+  //? ways of handling array-like
+  // 1: using Array.from(): a static method
+  // 2: using the spread operator
+  const argArr = [...arguments];
+  console.log(argArr);
+  argArr.forEach((elem) => {
+    console.log(elem);
+  });
+};
+
+checkArgs(1, 2);
+
+//? Array.fromAsync()
+
+const collectionPromise = Array.fromAsync([1, 2, 3, 4, 5]);
+
+console.log(collectionPromise);
+
+collectionPromise.then((data) => console.log(data));
+
+//? Array.of()
+
+const a = new Array(2, 3, 4, 5);
+const b = [6, 7, 8];
+
+const c = Array.of(2, true, "hello", null, undefined, a, b, { name: "John" });
+console.log(c);
+
+const cPop = c.pop();
+console.log(cPop);
+
+//* Array iterable methods
+
+//? Array filter method
+
+let customers = [
+  {
+    id: 1,
+    f_name: "Abby",
+    l_name: "Thomas",
+    gender: "M",
+    married: true,
+    age: 32,
+    expense: 500,
+    purchased: ["Shampoo", "Toys", "Book"],
+  },
+  {
+    id: 2,
+    f_name: "Jerry",
+    l_name: "Tom",
+    gender: "M",
+    married: true,
+    age: 64,
+    expense: 100,
+    purchased: ["Stick", "Blade"],
+  },
+  {
+    id: 3,
+    f_name: "Dianna",
+    l_name: "Cherry",
+    gender: "F",
+    married: true,
+    age: 22,
+    expense: 1500,
+    purchased: ["Lipstik", "Nail Polish", "Bag", "Book"],
+  },
+  {
+    id: 4,
+    f_name: "Dev",
+    l_name: "Currian",
+    gender: "M",
+    married: true,
+    age: 82,
+    expense: 90,
+    purchased: ["Book"],
+  },
+  {
+    id: 5,
+    f_name: "Maria",
+    l_name: "Gomes",
+    gender: "F",
+    married: false,
+    age: 7,
+    expense: 300,
+    purchased: ["Toys"],
+  },
+];
+
+// filter() - Get 'Senior Citizens' by filtering not other customers
+
+const seniorCustomers = customers.filter((customer) => {
+  return customer.age >= 60;
+});
+
+console.log(seniorCustomers);
+
+//? Map() method - Create a new array by doing something with each item in an array.
+
+const numbers = [1, 2, 3, 4, 5];
+const newNumbers = numbers.map((num) => num * num);
+console.log(newNumbers);
+
+const customerWithFullName = customers.map((customer) => {
+  const title =
+    customer.gender === "M"
+      ? "Mr."
+      : customer.gender === "F" && customer.married
+      ? "Mrs."
+      : "Miss.";
+  return {
+    ...customer,
+    full_name: `${title} ${customer.f_name} ${customer.l_name}`,
+  };
+});
+
+console.log(customerWithFullName);
+
+//? the Reduce() method: The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value
+
+const numbers2 = [1, 2, 3, 4, 5];
+const sum = numbers2.reduce((acc, num) => acc + num, 0);
+console.log(sum);
