@@ -216,3 +216,63 @@ console.log(customerWithFullName);
 const numbers2 = [1, 2, 3, 4, 5];
 const sum = numbers2.reduce((acc, num) => acc + num, 0);
 console.log(sum);
+
+let count = 0;
+const total = customers.reduce((accumulator, customer) => {
+  if (customer.purchased.includes("Book")) {
+    accumulator += customer.age;
+    count++;
+  }
+
+  return accumulator;
+}, 0);
+
+console.log("Customer Avg age Purchaesed Book", Math.floor(total / count));
+console.log("total: ", total);
+
+//? reduceRight()
+
+let number = [100, 40, 15];
+
+const subsResult = number.reduceRight(
+  (accumulator, current) => accumulator - current
+);
+
+console.log(subsResult);
+
+//? some(): used to check whether at least an item meets the conditon in the test function and the returns true or false
+
+const hasYoungCustomer = customers.some((customer) => {
+  return customer.age < 10;
+});
+
+console.log("Has Young Customer(Age < 10)", hasYoungCustomer);
+
+//?Every() - this to check whether all the items meet the condtio in the text function, and returns either true or false
+
+const isCustomerMarried = customers.every((customer) => customer.married);
+
+console.log("Has customer married", isCustomerMarried);
+
+//? find() - find the youngest customer
+
+const foundYoungCustomer = customers.find((customer) => customer.age < 10);
+
+console.log("Found Young Customer (Age < 10):", foundYoungCustomer);
+
+//?chaining array methods: Get the total amount spent by Married Customer
+
+const totalAmountSpentByMarriedCustomers = customers
+  .filter((customer) => customer.married)
+  .reduce((accumulator, customer) => accumulator + customer.expense, 0);
+
+console.log("Total amount", totalAmountSpentByMarriedCustomers);
+
+const arr = [1, 2, 4, 5];
+
+const arrItr = arr.entries();
+console.log(arrItr.next().value);
+
+for (const value of arrItr) {
+  console.log(value);
+}
